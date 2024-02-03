@@ -68,10 +68,10 @@ NP = MP* N DET?
 
 This rule would generate:
 
-- **edhen am** "the bird"
-- **velen edhen** "yellow bird"
-- **velen edhen am** "the yellow bird"
-- **pig velen edhen am** "the little yellow bird"
+- **\*edhen am** "the bird"
+- **\*velen edhen** "yellow bird"
+- **\*velen edhen am** "the yellow bird"
+- **\*pig velen edhen am** "the little yellow bird"
 
 Variants of the basic production rule are possible. Since the determiner is essentially a clitic on the noun, we can move it to the other side without ambiguity:
 
@@ -86,7 +86,7 @@ NP = (DET SMP*)? N MP*
 ```
 
 Note that we cannot allow SMPs before the noun in the absence of a determiner without creating syntactic ambiguity, since in an actual sentence the NP might be preceded by another NP with modifiers of its own.
-There are ways to mitigate this ambiguity, e.g. agreement.
+There are ways to mitigate this ambiguity, e.g. agreement, but such techniques are out of scope for this document.
 
 ## Modifier Phrases
 
@@ -117,4 +117,47 @@ Examples of MPs with complements:
 - **ga am edhen** "of the bird"
 - **gavo pelt am edhen** "giving rice to the bird"
 
+Since the complements are noun phrases, they can contain MPs of their own. With just two production rules, we have a recursive grammar, capable of producing phrases of any length or complexity.
 
+- **gavo pelt am edhen vowr math edhen big** "giving rice to the big bird eating a small bird"
+
+The predicate of an MP may have modifiers of its own. These modifiers are essentially adverbs.
+
+A common adverb is **mowr** (mutated form **vowr**) meaning "big, very, fully"
+
+- **melen vowr** "very yellow"
+- **math vowr** "devouring, eating up"
+- **gavo vowr pelt (nebban)** "giving all the rice (to someone)"
+
+### Modifier Attachment
+
+In complex phrases, it can sometimes be hard to tell which word an MP is modifying. Consider the phrase **am edhen velen vowr**. Does this mean "the big yellow bird" or "the very yellow bird?" If **vowr** is modifying **edhen**, it means "the big yellow bird". If **vowr** is modifying **velen**, it means "the very yellow bird".
+
+Actually, there is no ambiguity here, because English uses _consonant mutation_ to resolve it. That is, the initial consonant sound of a predicate changes when that predicate _immediately_ follows the word it is modifying. If any other word comes between the modifyee and the predicate, there is no mutation. Thus, we have:
+
+- **am edhen velen vowr** "the very yellow bird"
+- **am edhen velen mowr** "the big yellow bird"
+
+I personally like this mechanism; I think it's elegant and fairly naturalistic. However, it doesn't completely resolve all ambiguity about modifier attachment. If there are more than two levels of nested phrases, there is no way to know if an unmutated modifier attaches to the word one level up or two (or more) levels up.
+
+For example, in the sentence **am edhen vath edhen velen mowr**, is the big bird the one eating, or the one being eaten?
+
+It is possible to resolve this ambiguity if we distinguish three kinds of MPs:
+
+- Those that are _first_ among their modifyee's modifiers.
+- Those that are _last_ among their modifyee's modifiers.
+- Those that are in the middle, i.e. neither first nor last.
+
+The consonant mutation rule in English distinguishes first modifiers from the others, but there is no distinction between last and "middle" modifiers. Let's imagine we used a prefix `ac-` on last modifiers. Then we could construct phrases like:
+
+- **\*am edhen vath edhen ac-velen ac-mowr** "The big bird eating the yellow bird"
+- **\*am edhen ac-vath edhen ac-velen ac-vowr** "The bird eating the very yellow bird"
+- **\*am edhen ac-vath edhen velen ac-mowr** "The bird eating the big yellow bird"
+
+While this is nice and logical, it has several practical weaknesses.
+
+First, human speakers do not always know when they are about to utter the last modifier of a word. In general, it's a losing battle to try to force humans to parse or generate unambiguous nested structures of arbitrary depth. We just don't have the working memory for it.
+
+Second, the resulting structure is difficult to parse in real time. It's a bit of a logic puzzle to deduce which modifiers attach to which modifyees.
+
+Finally, some ambiguity about modifier attachment is normal in natural languages, and in many cases it is unclear even to the speaker which word a modifier should attach to. In the sentence _the suspect murdered the man in his bedroom_, does the prepositional phrase _in his bedroom_ attach to _the man_, or is it an adverbial modifier on _murdered_? Practically, it doesn't matter. The meaning is nearly the same in either case.
