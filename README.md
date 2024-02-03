@@ -6,6 +6,10 @@ The One Grammar... TO RULE THEM ALL!!!
 
 It is designed to minimize syntactic ambiguity (think Lojban) while remaining at least somewhat naturalistic. You can dial the syntactic precision up or down to your liking.
 
+OGTRTA is a "reversible" grammar: all the production rules can be reversed to get a language with the opposite word order. The basic supported word orders are head-initial VOS and head-final SOV. OGTRTA languages can implement transformations can move the subject to the opposite end of the sentence, so SVO and OVS word orders are also possible.
+
+The other two possible word orders, VSO and OSV, are not directly supported, but can be achieved using clitic subject pronouns or noun incorporation.
+
 ## Inspiration
 
 The most interesting thing about OGTRTA is probably its treatment of verbs, prepositions, adjectives, and adverbs.
@@ -24,6 +28,34 @@ The Celtic languages also provided a great deal of inspiration. The reference im
 
 ## Description
 
-TODO
+This section presents a "reference implementation" of OGTRTA—a language designed according to OGTRTA conventions. To avoid confusion, the reference language is called English.
 
+### Noun Phrases
 
+A noun phrase describes a person, place, thing, or idea. The production rule for noun phrases in a head-initial OGTRTA language is:
+
+```
+NP = DET? N MP*
+```
+
+Where `DET` is a determiner, `N` is a lexical noun, and `MP*` is zero or more modifier phrases (described below).
+
+Examples in English:
+
+- **edhen** "bird"
+- **am edhen** "the bird"
+- **edhen velen** "yellow bird"
+- **am edhen velen** "the yellow bird"
+- **am edhen velen pig** "the little yellow bird"
+
+The `DET?` part of the rule is optional; OGTRTA languages need not have determiners at all. I've chosen to include determiners in English to demonstrate more of the range of OGTRTA's capability, but I could just as easily have chosen to leave them out.
+
+Even if you do have determiners in your language, that doesn't mean you have to use them for the same set of things that English does. Possessive pronouns, for example, can be either determiners or modifiers:
+
+- **\*nin edhen** "my bird" (determiner) (the asterisk indicates a counterfactual, since English doesn't actually work this way)
+- **am edhen nin** "my bird" (modifier)
+
+Demonstratives, too, can be determiners or modifiers
+
+- **\*hen edhen** "this bird" (determiner)
+- **am edhen hen** "this bird" (modifier)
