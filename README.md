@@ -4,7 +4,7 @@ The One Grammar... TO RULE THEM ALL!!!
 
 ...or OGTRTA, for short, is a meta-grammar for constructed languages. It's kind of like a grammar template that you can customize for your conlang.
 
-It is designed to minimize syntactic ambiguity (think Lojban) while remaining at least somewhat naturalistic. You can dial the syntactic precision up or down to your liking.
+It is designed to minimize syntactic ambiguity (think Lojban) without requiring agreement-marking, while remaining at least somewhat naturalistic. You can dial the syntactic precision up or down to your liking.
 
 OGTRTA is a "reversible" grammar: all the production rules can be reversed to get a language with the opposite word order. The basic supported word orders are head-initial VOS and head-final SOV. OGTRTA languages can implement transformations can move the subject to the opposite end of the sentence, so SVO and OVS word orders are also possible.
 
@@ -59,3 +59,31 @@ Demonstratives, too, can be determiners or modifiers
 
 - **\*hen edhen** "this bird" (determiner)
 - **am edhen hen** "this bird" (modifier)
+
+What about head-final languages? If your language is head-final, the production rule is reversed:
+
+```
+NP = MP* N DET?
+```
+
+This rule would generate:
+
+- **edhen am** "the bird"
+- **velen edhen** "yellow bird"
+- **velen edhen am** "the yellow bird"
+- **pig velen edhen am** "the little yellow bird"
+
+Variants of the basic production rule are possible. Since the determiner is essentially a clitic on the noun, we can move it to the other side without ambiguity:
+
+```
+NP = N DET? MP*
+```
+
+We can also choose to allow "simple" MPs (e.g. adjectives with no complements or modifiers of their own, denoted below as `SMP`) between the noun and its determiner:
+
+```
+NP = (DET SMP*)? N MP*
+```
+
+Note that we cannot allow SMPs before the noun in the absence of a determiner without creating syntactic ambiguity, since in an actual sentence the NP might be preceded by another NP with modifiers of its own.
+There are ways to mitigate this ambiguity, e.g. agreement.
