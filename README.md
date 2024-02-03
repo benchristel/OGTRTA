@@ -88,7 +88,21 @@ NP = (DET SMP*)? N MP*
 Note that we cannot allow SMPs before the noun in the absence of a determiner without creating syntactic ambiguity, since in an actual sentence the NP might be preceded by another NP with modifiers of its own.
 There are ways to mitigate this ambiguity, e.g. agreement, but such techniques are out of scope for this document.
 
-## Modifier Phrases
+### Conjunctions
+
+A second production rule for `NP` describes the use of conjunctions like "and" and "or":
+
+```
+NP = NP CONJ NP
+```
+
+There's not much to say about this. Conjunctions: they exist!
+
+While English has conjunctions, other OGTRTA languages might not. It's possible to use modifier phrases instead:
+
+- **\*am edhen do am pesh** "the bird with the fish" (i.e. "the bird and the fish")
+
+### Modifier Phrases
 
 We have already seen a few examples of modifier phrases above: the adjective-like words **pig** and **melen** (sic—the spelling **velen** arises from a consonant mutation). Technically, though, these are not adjectives, but _predicates_.
 
@@ -179,3 +193,24 @@ That is, we can allow post-complement modifiers of the predicate.
 The ambiguity results from the fact that the NP complements of the predicate might have modifiers of their own, and it might not be possible to tell where the sequence of modifiers for the last NP ends, and the modifiers for the MP begin.
 
 However, if we assume that the post-complement modifiers are prepositional phrases, this is "good ambiguity". As discussed above, the attachment of prepositional phrases is usually not crucially important, so allowing the attachment to be ambiguous reduces the burden on the speaker without increasing the burden on the listener.
+
+### Sentences
+
+Now we have all the pieces in place to create complete sentences. Sentences in English have the following production rule:
+
+```
+S = MP* SN
+SN = NP TAM MP
+SN = TAM MP MP
+```
+
+That is, a sentence consists of zero or more modifier phrases followed by a sentence nucleus (SN).
+
+An SN contains an MP containing the main predicate of the sentence, preceded by a tense-aspect-mood particle (TAM). The subject of the sentence is an MP, which can either come first or last.
+
+Here are some examples of sentences without leading MPs:
+
+- **Am edhen a canu.** "The bird sings."
+- **Am edhen a math pelt.** "The bird eats rice."
+
+The modifier phrases at the start of a sentence play the role of sentence-level conjunctions and conjunction-like adverbs ("however", "additionally") and attitudinal adverbs ("hopefully", "fortunately"). They can also be prepositional phrases ("on Tuesday").
