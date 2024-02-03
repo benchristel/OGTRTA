@@ -161,3 +161,21 @@ First, human speakers do not always know when they are about to utter the last m
 Second, the resulting structure is difficult to parse in real time. It's a bit of a logic puzzle to deduce which modifiers attach to which modifyees.
 
 Finally, some ambiguity about modifier attachment is normal in natural languages, and in many cases it is unclear even to the speaker which word a modifier should attach to. In the sentence _the suspect murdered the man in his bedroom_, does the prepositional phrase _in his bedroom_ attach to _the man_, or is it an adverbial modifier on _murdered_? Practically, it doesn't matter. The meaning is nearly the same in either case.
+
+### Post-Complement Adverbial Phrases
+
+The production rule for MPs described above requires us to put all modifiers of a predicate before its complements. This is awkward, because those modifiers might be lengthy prepositional phrases.
+
+- **\*am edhen vath vowr na goweth pelt** "the bird devouring rice in the tree" (lit. "the bird eating up in the tree rice")
+
+We can relax the rule, at the cost of some ambiguity, to:
+
+```
+MP = P_n MP* NP{n} MP*
+```
+
+That is, we can allow post-complement modifiers of the predicate.
+
+The ambiguity results from the fact that the NP complements of the predicate might have modifiers of their own, and it might not be possible to tell where the sequence of modifiers for the last NP ends, and the modifiers for the MP begin.
+
+However, if we assume that the post-complement modifiers are prepositional phrases, this is "good ambiguity". As discussed above, the attachment of prepositional phrases is usually not crucially important, so allowing the attachment to be ambiguous reduces the burden on the speaker without increasing the burden on the listener.
