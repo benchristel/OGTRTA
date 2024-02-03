@@ -87,3 +87,34 @@ NP = (DET SMP*)? N MP*
 
 Note that we cannot allow SMPs before the noun in the absence of a determiner without creating syntactic ambiguity, since in an actual sentence the NP might be preceded by another NP with modifiers of its own.
 There are ways to mitigate this ambiguity, e.g. agreement.
+
+## Modifier Phrases
+
+We have already seen a few examples of modifier phrases above: the adjective-like words **pig** and **melen** (sic—the spelling **velen** arises from a consonant mutation). Technically, though, these are not adjectives, but _predicates_.
+
+Predicates in OGTRTA play the roles that verbs, adjectives, and prepositions do in English. The following words are all predicates:
+
+- **melen** "yellow"
+- **math** "eating"
+- **ga** "of"
+- **gavo** "giving"
+
+Some predicates take _complements_. Complements are noun phrases that follow the predicate (in head-first languages) and complete its meaning. Predicates must have all their complement "slots" filled. The number of complement slots a predicate has is called its _valence_.
+
+Adjective-like predicates like **melen** generally don't take any complements, so they have a valence of 0. **Math** is a transitive-verb-like predicate and has a valence of 1. Preposition-like predicates like **ga** also have a valence of 1. **Gavo** is ditransitive, and has a valence of 2.
+
+The production rule for an MP is:
+
+```
+MP = P_n MP* NP{n}
+```
+
+That is, an MP consists of a predicate (which has some valence `n`), zero or more modifier phrases, and `n` noun phrases to fill the complement slots.
+
+Examples of MPs with complements:
+
+- **math pelt** "eating rice"
+- **ga am edhen** "of the bird"
+- **gavo pelt am edhen** "giving rice to the bird"
+
+
