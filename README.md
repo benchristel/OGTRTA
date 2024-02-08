@@ -7,7 +7,7 @@ The One Grammar... TO RULE THEM ALL!!!
 It is designed to minimize syntactic ambiguity (think Lojban) without requiring agreement-marking, while remaining at least somewhat naturalistic. You can dial the syntactic precision up or down to your liking.
 
 This document describes the OGTRTA framework through the lens of a specific language that uses it: English. I cover not only how OGTRTA and English do things, but why. Along the way, I'll also discuss the decisions that I made when designing English,
-and explore some of the roads not taken.
+and explore some of the roads not taken. Example sentences will be in **bold**, and counterfactual examples (e.g. using different grammar rules from those I chose for English) will be marked with an asterisk **\*like this**.
 
 ## Inspiration
 
@@ -43,7 +43,7 @@ A noun phrase describes a person, place, thing, or idea. The production rule for
 NP = DET? N MP*
 ```
 
-Where `DET` is a determiner, `N` is a lexical noun, and `MP*` is zero or more modifier phrases (described below).
+Where `DET` is a **determiner**, `N` is a **noun**, and `MP*` is zero or more **modifier phrases** (I'll get to those in a bit).
 
 Examples in English:
 
@@ -91,7 +91,6 @@ NP = (DET SMP*)? N MP*
 ```
 
 Note that we cannot allow SMPs before the noun in the absence of a determiner without creating syntactic ambiguity, since in an actual sentence the NP might be preceded by another NP with modifiers of its own.
-There are ways to mitigate this ambiguity, e.g. agreement, but such techniques are out of scope for this document.
 
 ### Conjunctions
 
@@ -180,6 +179,18 @@ First, human speakers do not always know when they are about to utter the last m
 Second, the resulting structure is difficult to parse in real time. It's a bit of a logic puzzle to deduce which modifiers attach to which modifyees.
 
 Finally, some ambiguity about modifier attachment is normal in natural languages, and in many cases it is unclear even to the speaker which word a modifier should attach to. In the sentence _the suspect murdered the man in his bedroom_, does the prepositional phrase _in his bedroom_ attach to _the man_, or is it an adverbial modifier on _murdered_? Practically, it doesn't matter. The meaning is nearly the same in either case.
+
+### Agreement
+
+One way to reduce ambiguity about modifier attachment is to require modifiers to _agree_ with the modified noun. Agreement assumes that each noun is assigned a "class", and both the speaker and listener know what class any given noun is in. In European languages, the classes are generally masculine, feminine, and (sometimes) neuter, and are assigned to nouns arbitrarily. But this is by no means the only possibility. For example, many languages distinguish between animate and inanimate nouns. Tamil divides the world into [rational and irrational beings](https://en.wikipedia.org/wiki/Tamil_grammar#Rationality) (and children are irrational!) And [Swahili has 15 different noun classes](https://en.wikipedia.org/wiki/Noun_class).
+
+English has very minimal agreement (an animacy distinction in third-person pronouns only). But for the sake of making the idea concrete, let's imagine what English would be like with modifier agreement.
+
+Let's suppose that "bird" and "fish" are in different noun classes - e.g. "bird" is in the noun class for warm-blooded vertebrates ("class W"), and "fish" is in the noun class for cold-blooded vertebrates ("class C"). Predicates modifying class-W nouns infix **-ey-** before their last vowel. Predicates modifying class-C nouns infix **-imm-** before their last vowel. Here are the results:
+
+- **\*edhen meleyen** "yellow bird"
+- **\*pesh melimmen** "yellow fish"
+- **\*am edhen mayeth pesh melimmen mimmowr** "the bird eating the big yellow fish"
 
 ### Post-Complement Adverbial Phrases
 
