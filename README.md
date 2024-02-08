@@ -6,9 +6,8 @@ The One Grammar... TO RULE THEM ALL!!!
 
 It is designed to minimize syntactic ambiguity (think Lojban) without requiring agreement-marking, while remaining at least somewhat naturalistic. You can dial the syntactic precision up or down to your liking.
 
-OGTRTA is a "reversible" grammar: all the production rules can be reversed to get a language with the opposite word order. The basic supported word orders are head-initial VOS and head-final SOV. OGTRTA languages can implement transformations can move the subject to the opposite end of the sentence, so SVO and OVS word orders are also possible.
-
-The other two possible word orders, VSO and OSV, are not directly supported, but can be achieved using clitic subject pronouns or noun incorporation.
+This document describes the OGTRTA framework through the lens of a specific language that uses it: English. I cover not only how OGTRTA and English do things, but why. Along the way, I'll also discuss the decisions that I made when designing English,
+and explore some of the roads not taken.
 
 ## Inspiration
 
@@ -29,6 +28,12 @@ The Celtic languages also provided a great deal of inspiration. The reference im
 ## Description
 
 This section presents a "reference implementation" of OGTRTA—a language designed according to OGTRTA conventions. To avoid confusion, the reference language is called English.
+
+### Overall Typology
+
+OGTRTA is a "reversible" grammar: all the production rules can be reversed to get a language with the opposite word order. The basic supported word orders are head-initial VOS and head-final SOV. OGTRTA languages can implement transformations can move the subject to the opposite end of the sentence, so SVO and OVS word orders are also possible.
+
+The other two possible word orders, VSO and OSV, are not directly supported, but can be achieved using clitic subject pronouns or noun incorporation.
 
 ### Noun Phrases
 
